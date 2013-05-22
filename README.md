@@ -40,7 +40,9 @@ Or install it yourself as:
   result = MyAncestry.new(list,{:id=> :id, :ancestry_id => :ancestry})
 
   brothers = result.brothers_of(2)
+
   childrem = result.childrem_of(1)
+  
   parent = result.parent_of(3)
   .....
 
