@@ -55,3 +55,5 @@ Or install it yourself as:
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 6. Execure the "THE BEER-WARE LICENSE".
+
+#tnks for Digaoddc (https://github.com/digaoddc/)
