@@ -1,6 +1,8 @@
 class TypeException < Exception ;end
 class MyAncestry
 
+  attr_reader :objs
+
   def initialize(objs, options={})
     validate_objs(objs)
     @objs = objs
@@ -18,10 +20,8 @@ class MyAncestry
     @objs
   end
 
-  def search
-    @objs.select do
-      yield
-    end
+  def search(&blk)
+    objs.select(&blk)
   end
 
   #Search parent by id of child
@@ -50,9 +50,7 @@ class MyAncestry
 
   def validate_objs(objs)
     first_class_name = objs.first.class.name
-    objs.each do |obj|
-       raise TypeException.new "The list of objets must be a single type" unless first_class_name == obj.class.name
-    end
+    raise TypeException.new "The list of objets must be a single type" if objs.any? { |obj| obj.class.to_s != first_class_name}
   end
 
   private 
