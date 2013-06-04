@@ -47,6 +47,7 @@ class MyAncestry
   def find_by_id(id)
     @objs.select {|obj| eval(comparision_obj_value("obj")).to_i == id.to_i}.first
   end
+  alias find find_by_id
 
   def validate_objs(objs)
     first_class_name = objs.first.class.name
